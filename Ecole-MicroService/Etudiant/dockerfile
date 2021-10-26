@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8080
+ADD /target/etudiant-0.0.1-SNAPSHOT etudiant-service.jar
+ENTRYPOINT ["java", "-jar", "etudiant-service.jar"]
