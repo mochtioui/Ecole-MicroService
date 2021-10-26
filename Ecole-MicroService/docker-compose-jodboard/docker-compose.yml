@@ -1,10 +1,10 @@
 version: "3.9"
 services:
   discovery:
-    build: ../discovery-server
+    build: ../Eureka
     ports:
       - "8761:8761"
-    image: "discovery-service"
+    image: "Eureka"
   matiere_B:
     build: ../Matiere-MicroS
     environment:
@@ -12,3 +12,10 @@ services:
     ports:
       - "3000:8080"
     image: "matiere-service"
+  user_B:
+    build: ../User-MicroS
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "3001:8081"
+    image: "user-service"
