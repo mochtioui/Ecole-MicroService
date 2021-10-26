@@ -12,10 +12,17 @@ services:
     ports:
       - "3000:8080"
     image: "matiere-service"
-  user_B:
+  enseignant_B:
     build: ../Enseignant
     environment:
       - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
     ports:
       - "3001:8081"
     image: "enseignant-service"
+  etudiant_B:
+    build: ../Etudiant
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "3001:8082"
+    image: "etudiant-service"
