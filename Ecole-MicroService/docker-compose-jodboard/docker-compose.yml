@@ -13,9 +13,9 @@ services:
       - "3000:8080"
     image: "matiere-service"
   user_B:
-    build: ../User-MicroS
+    build: ../Enseignant
     environment:
       - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
     ports:
       - "3001:8081"
-    image: "user-service"
+    image: "enseignant-service"
